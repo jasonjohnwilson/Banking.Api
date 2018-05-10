@@ -24,6 +24,11 @@ namespace Bizfitech.Banking.Api.Core.Services
         {
             try
             {
+                if(user == null)
+                {
+                    throw new ArgumentNullException($"{nameof(user)} cannot be null");
+                }
+
                 var bank = (await _bankUow.Banks.GetAllAsync(b => b.Name == user.BankAccount.BankName))
                     .SingleOrDefault();
 
@@ -72,11 +77,8 @@ namespace Bizfitech.Banking.Api.Core.Services
                 };
 
                 userModel.Accounts.Add(accountModel);
-
                 await _bankUow.Users.AddAsync(userModel);
-
                 await _bankUow.Accounts.AddAsync(accountModel);
-
                 await _bankUow.SaveAllChangesAsync();
 
                 return new Result<User>
@@ -97,9 +99,9 @@ namespace Bizfitech.Banking.Api.Core.Services
             }
         }
 
-
         private async Task<bool> IsAccountAssignedToAnotherUser(string bankName, string accountNumber, string username)
         {
+            //todo: move this into an injected query class
             return (await _bankUow.Accounts.GetAllAsync(
                                     a => a.AccountNumber.Equals(accountNumber, StringComparison.InvariantCultureIgnoreCase) &&
                                     a.Bank.Name.Equals(bankName, StringComparison.InvariantCultureIgnoreCase) &&
