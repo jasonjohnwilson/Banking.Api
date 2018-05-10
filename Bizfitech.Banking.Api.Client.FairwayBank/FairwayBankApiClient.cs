@@ -19,26 +19,60 @@ namespace Bizfitech.Banking.Api.Client.FairwayBank
         {
             var accountViewModel = await GetAccountDetailsAsync(accountNumber);
 
-            if(accountViewModel == null || accountViewModel.Identifier == null)
+            if (accountViewModel == null || accountViewModel.Identifier == null)
             {
                 return null;
             }
 
             var balanceViewModel = await GetBalanceDetailsAsync(accountViewModel.Identifier.AccountNumber);
 
-            //todo:  check calculation for balance and extract into strategy class and inject, so can be tested seperately
+            //todo:  check calculation for balance and extract into strategy class and inject, so it is testable
             var accountDto = new BankAccountReadDto
             {
                 AccountName = accountViewModel.Name,
                 AccountNumber = accountViewModel.Identifier.AccountNumber,
                 Bank = _configuration.Bank.Name,
                 SortCode = accountViewModel.Identifier.SortCode,
-                AvailableBalance = balanceViewModel.Amount.Value +  (balanceViewModel.Overdraft != null ? balanceViewModel.Overdraft.Amount.Value : 0),
-                Balance = balanceViewModel.Amount.Value,
+                AvailableBalance = CalculateAvailableBalance(balanceViewModel),
+                Balance = CalculateBalance(balanceViewModel),
                 Overdraft = balanceViewModel.Overdraft != null ? balanceViewModel.Overdraft.Amount.Value : 0
-            };                       
+            };
 
             return accountDto;
+        }
+
+        private static double CalculateBalance(BalanceViewModel balanceViewModel)
+        {
+            if (balanceViewModel.Type == BalanceViewModel.TypeEnum.Debit)
+            {
+                return 0 - balanceViewModel.Amount.Value;
+            }
+            else
+            {
+                return balanceViewModel.Amount.Value;
+            }                
+        }
+
+        private static double CalculateAvailableBalance(BalanceViewModel balanceViewModel)
+        {
+            double availableBalance = 0;
+            double overdraftAmount = GetOverdraftAmount(balanceViewModel.Overdraft);
+
+            if (balanceViewModel.Type == BalanceViewModel.TypeEnum.Debit)
+            {
+                availableBalance = overdraftAmount - balanceViewModel.Amount.Value;
+            }
+            else
+            {
+                availableBalance = overdraftAmount + balanceViewModel.Amount.Value;
+            }
+
+            return availableBalance;
+        }
+
+        private static double GetOverdraftAmount(OverdraftViewModel overdraftViewModel)
+        {
+            return overdraftViewModel != null ? overdraftViewModel.Amount.Value : 0;
         }
 
         private async Task<AccountViewModel> GetAccountDetailsAsync(string accountNumber)

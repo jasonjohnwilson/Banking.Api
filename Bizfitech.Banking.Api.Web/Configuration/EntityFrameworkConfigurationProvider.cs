@@ -19,8 +19,7 @@ namespace Bizfitech.Banking.Api.Web.Configuration
         public EntityFrameworkConfigurationProvider(Action<DbContextOptionsBuilder> optionsAction)
         {
             _optionsAction = optionsAction;
-        }
-        
+        }        
         public override void Load()
         {
             var builder = new DbContextOptionsBuilder<BankContext>();

@@ -23,7 +23,8 @@ namespace Bizfitech.Banking.Api.Web.Helpers
                     new Bank{ Id = fairwayBankGuid, Name = "Fairway" }
                 });
             }
-
+            //todo: multiple clients using same plug in approach, only Fairway currently but others follow same approach
+            //      also would need to copy dll into bin directory of wep app
             if (context.BankApiClientConfigurations.Any() == false)
             {
                 context.BankApiClientConfigurations.AddRange(new BankApiClientConfiguration[] {
