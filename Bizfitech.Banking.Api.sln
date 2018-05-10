@@ -13,14 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FBD40AC0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bizfitech.Banking.Api.Web.Tests", "Bizfitech.Banking.Api.Web.Tests\Bizfitech.Banking.Api.Web.Tests.csproj", "{483B4C14-AFFE-4C50-9A91-9C5732DAF2A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bizfitech.Banking.Api.Core.Tests", "Bizfitech.Banking.Api.Web.Core\Bizfitech.Banking.Api.Core.Tests.csproj", "{9E8A6F17-DA1A-4546-8FB0-7987BD176F54}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizfitech.Banking.Api.Client.FairwayBank", "Bizfitech.Banking.Api.Client.FairwayBank\Bizfitech.Banking.Api.Client.FairwayBank.csproj", "{FF19E147-9674-40B3-BD11-E61E2FD68835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bizfitech.Banking.Api.Client.FairwayBank", "Bizfitech.Banking.Api.Client.FairwayBank\Bizfitech.Banking.Api.Client.FairwayBank.csproj", "{FF19E147-9674-40B3-BD11-E61E2FD68835}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA5D4675-22CE-4871-A1B1-F1202EA68AEF}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bizfitech.Banking.Api.Core.Tests", "Bizfitech.Banking.Api.Core.Tests\Bizfitech.Banking.Api.Core.Tests.csproj", "{776797AF-CDD3-4674-8F58-8F257200742D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,21 +44,21 @@ Global
 		{483B4C14-AFFE-4C50-9A91-9C5732DAF2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{483B4C14-AFFE-4C50-9A91-9C5732DAF2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{483B4C14-AFFE-4C50-9A91-9C5732DAF2A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E8A6F17-DA1A-4546-8FB0-7987BD176F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E8A6F17-DA1A-4546-8FB0-7987BD176F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E8A6F17-DA1A-4546-8FB0-7987BD176F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E8A6F17-DA1A-4546-8FB0-7987BD176F54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF19E147-9674-40B3-BD11-E61E2FD68835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF19E147-9674-40B3-BD11-E61E2FD68835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF19E147-9674-40B3-BD11-E61E2FD68835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF19E147-9674-40B3-BD11-E61E2FD68835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776797AF-CDD3-4674-8F58-8F257200742D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776797AF-CDD3-4674-8F58-8F257200742D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776797AF-CDD3-4674-8F58-8F257200742D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776797AF-CDD3-4674-8F58-8F257200742D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{483B4C14-AFFE-4C50-9A91-9C5732DAF2A7} = {FBD40AC0-14A1-41B7-8084-4436C224A012}
-		{9E8A6F17-DA1A-4546-8FB0-7987BD176F54} = {FBD40AC0-14A1-41B7-8084-4436C224A012}
+		{776797AF-CDD3-4674-8F58-8F257200742D} = {FBD40AC0-14A1-41B7-8084-4436C224A012}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292F0279-D0E3-48E1-966F-7358A55831E5}
